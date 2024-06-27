@@ -6,4 +6,5 @@ x = ["Apples", "Bananas", "Cherries", "Dates"]
 
 plt.pie(y, labels = x)
 plt.legend()
+plt.tight_layout()  # Adjust layout to prevent overlapping
 plt.show() 

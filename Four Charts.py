@@ -30,10 +30,6 @@ x4 = np.array(["Apples", "Bananas", "Cherries", "Dates"])
 y4 = np.array([35, 25, 25, 15])
 
 plt.subplot(1, 4, 4)
-
-x4 = ["Apples", "Bananas", "Cherries", "Dates"]
-y4 = [35, 25, 25, 15]
-
 plt.pie(y4, labels = x4)
 plt.legend()
 plt.tight_layout()  # Adjust layout to prevent overlapping

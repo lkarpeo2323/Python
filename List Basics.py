@@ -18,3 +18,8 @@ print(child) #Output: ['Leo', 'Abie', 'Rebecca', 'Cooper', 'Carl', 'Cooper']
 teams = ["Mets","Yankees", "Orioles"]
 teams.pop(1)
 print(teams) #Output: ['Mets', 'Orioles']
+
+#Square a list
+numbers = [1, 2, 3, 4, 5]
+squares = [x**2 for x in numbers]
+print(squares)  # Output: [1, 4, 9, 16, 25]

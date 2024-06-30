@@ -29,32 +29,6 @@ while (j<15):
     print(j)
     j = j+1
 
-
-#Easy Math
-
-a = int(input("input a number for A: "))
-b = int(input("input a number for B: "))
-
-sum = a + b
-diff = a - b
-mult = a * b
-div = a / b
-
-
-print(f"a is equal to {a}")
-print(f"b is equal to {b}")
-print(f"The sum of the numbers is {sum}")
-print(f"The difference of the numbers is {diff}")
-print(f"The product of the numbers is {mult}")
-print(f"The quotient of the numbers is {div}")
-
-if a > b:
-    print("a is greater than b")
-elif a < b:
-    print("a is less than b")
-else:
-    print("a is equal to b")
-
 # Mean and median
 
 x = pd.Series([2.2,2.3,4.5,2.2,2.5])
@@ -66,10 +40,7 @@ print(f"The median is {median}")
 
 
 #return
-
 def mom(x):
     return x + 2
-
 leo = mom(3)
-
 print(leo) #Output is 5

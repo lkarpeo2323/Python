@@ -1,12 +1,10 @@
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-values = [5,8,9,10,4,7]
-widths = [0.7, 0.8, 0.7 , 0.7, 0.7 , 0.7]
-colors = ['b','r','b','b','b','b']
+values = [1,5,8,9,2,0,3,10,4,7]
+values2 = [3,8,9,2,1,2,4,7,6,6]
 
-plt.bar(range(0,6), values, width=widths, 
-color=colors, align='center')
-
+plt.plot(range(1,11), values, 'o--')
+plt.plot(range(1,11), values2, 'v:')
 
 plt.show()

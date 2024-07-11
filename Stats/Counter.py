@@ -1,4 +1,10 @@
+import pandas as pd
 from collections import Counter
 
-counts = Counter(['mom', 'dad', 'mom'])
-print(counts)  # Output: Counter({'mom': 2, 'dad': 1})
+data = pd.read_excel('links.xlsx')
+
+counts = Counter(data['link'])
+
+print("Link counts:")
+for link, count in counts.items():
+    print(f"{link}: {count}")

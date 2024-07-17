@@ -6,3 +6,6 @@ print(page.metadata)
 
 
 print(page.get_metadatas('title')) #get the title
+
+print(page.get_metadatas('description')) #get the description
+

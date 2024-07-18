@@ -10,7 +10,7 @@ import pandas as pd
 nltk.download('stopwords')
 nltk.download('punkt')
 
-def extract_top_words(url, num_keywords=20):
+def extract_top_words(url, num_keywords=5):
     headers = {'User-Agent': 'Mozilla/5.0'}
     try:
         response = requests.get(url, headers=headers)

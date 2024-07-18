@@ -4,6 +4,10 @@ url = 'https://portfolio-karpel-website.netlify.app/index.html'
 page = metadata_parser.MetadataParser(url)
 
 
-print('Title:' ,page.get_metadatas('title'))
+print(page.metadata) #All the data
 
-print('Meta Description:', page.get_metadatas('description'))
+print('Title:' ,page.get_metadatas('title')) #title
+
+print('Meta Description:', page.get_metadatas('description')) #description
+
+print('Meta Description:', page.get_metadatas('image')) #image

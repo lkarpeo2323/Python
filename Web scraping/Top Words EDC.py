@@ -8,7 +8,7 @@ import nltk
 nltk.download('stopwords')
 nltk.download('punkt')
 
-def extract_top_words(url, num_keywords=10):
+def extract_top_words(url, num_keywords=5):
     headers = {'User-Agent': 'Mozilla/5.0'}
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, 'html.parser')

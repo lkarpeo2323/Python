@@ -10,4 +10,4 @@ print('Title:' ,page.get_metadatas('title')) #title
 
 print('Meta Description:', page.get_metadatas('description')) #description
 
-print('Meta Description:', page.get_metadatas('image')) #image
+print('Image:', page.get_metadatas('image')) #image

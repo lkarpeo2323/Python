@@ -1,13 +1,9 @@
+from urllib.request import urlopen
 from bs4 import BeautifulSoup
-import requests
 
-response = requests.get('https://portfolio-karpel-website.netlify.app/index.html')
-soup = BeautifulSoup(response.text, 'html.parser')
+html = urlopen('https://portfolio-karpel-website.netlify.app/index.html')
+bs = BeautifulSoup(html.read(), 'html.parser')
 
-
-print(soup.title.text) #Title tag
-
-print(soup.h1.text) #h1 tag
-
-print(soup.h2.text) #h2 tag
-
+print(bs.h1)
+print(bs.h2)
+print(bs.title)

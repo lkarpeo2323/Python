@@ -34,13 +34,21 @@ data = pd.read_excel(file_path)
 # Assuming the URLs are in a column named 'Page URL'
 urls = data['Page URL'].tolist()
 
-results = {}
+results = []
 for url in urls:
-    results[url] = extract_top_words(url)
-
-# Print results
-for url, keywords in results.items():
-    print(f"URL: {url}")
+    keywords = extract_top_words(url)
     for word, freq in keywords:
-        print(f"  {word}: {freq}")
-    print("\n")
+        results.append({
+            'URL': url,
+            'Keyword': word,
+            'Frequency': freq
+        })
+
+# Convert results to DataFrame
+results_df = pd.DataFrame(results)
+
+# Save to CSV
+csv_file_path = 'top_keywords.csv'
+results_df.to_csv(csv_file_path, index=False)
+
+print(f"Results have been saved to {csv_file_path}")

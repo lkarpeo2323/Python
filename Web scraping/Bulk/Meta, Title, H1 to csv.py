@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
-# Function to get title and meta description from a URL
+# Function to get title, meta description, and h1 tag from a URL
 def get_meta_data(url):
     headers = {'User-Agent': 'Mozilla/5.0'}
     
@@ -12,16 +12,21 @@ def get_meta_data(url):
         
         soup = BeautifulSoup(response.content, 'html.parser')
         
+        # Extract title
         title = soup.title.string.strip() if soup.title else 'No title found'
         
+        # Extract meta description
         meta_description = next(
             (meta.attrs['content'] for meta in soup.find_all('meta') if 'name' in meta.attrs and meta.attrs['name'].lower() == 'description'),
             'No meta description found'
         )
         
-        return title, meta_description
+        # Extract h1 tag
+        h1_tag = soup.h1.string.strip() if soup.h1 else 'No h1 tag found'
+        
+        return title, meta_description, h1_tag
     except Exception as e:
-        return f"Error: {e}", f"Error: {e}"
+        return f"Error: {e}", f"Error: {e}", f"Error: {e}"
 
 # Read the Excel file
 file_path = 'Issues.xlsx'
@@ -35,11 +40,12 @@ results = []
 
 # Loop through each URL and fetch the meta data
 for url in urls:
-    title, meta_description = get_meta_data(url)
+    title, meta_description, h1_tag = get_meta_data(url)
     results.append({
         'URL': url,
         'Title': title,
-        'Meta Description': meta_description
+        'Meta Description': meta_description,
+        'H1 Tag': h1_tag
     })
 
 # Convert results to DataFrame

@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+from urllib.parse import urlparse, urljoin
 
 # URL of the webpage to scrape
 url = 'https://essentialdata.com/documentation-writers-everything-you-need-to-know/'
@@ -17,18 +17,28 @@ response = requests.get(url, headers=headers)
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, 'html.parser')
     
+    # Get the base URL for resolving relative links
+    base_url = urlparse(url).scheme + '://' + urlparse(url).hostname
+
+    # Function to check if a URL is internal
+    def is_internal(url, base_url):
+        return urlparse(url).hostname == urlparse(base_url).hostname
+
     # Get all <a> tags with href attribute
     links = soup.find_all('a', href=True)
     
-    urls = []
+    internal_links = set()
     for link in links:
         href = link.get('href')
         # Resolve relative URLs to absolute URLs
         full_url = urljoin(url, href)
-        urls.append(full_url)
-        print(full_url)
+        if is_internal(full_url, base_url):
+            internal_links.add(full_url)
 
-    print(f'\nTotal links found: {len(urls)}')
+    # Print internal links
+    print('Internal Links:')
+    for link in internal_links:
+        print(link)
 
 else:
     print(f"Failed to retrieve the webpage: Status code {response.status_code}")

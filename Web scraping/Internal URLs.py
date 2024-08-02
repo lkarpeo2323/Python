@@ -40,5 +40,8 @@ if response.status_code == 200:
     for link in internal_links:
         print(link)
 
+    # Print total number of internal links
+    print(f'\nTotal number of internal links: {len(internal_links)}')
+
 else:
     print(f"Failed to retrieve the webpage: Status code {response.status_code}")

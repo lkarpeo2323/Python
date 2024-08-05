@@ -1,8 +1,11 @@
 from scipy import stats
+import pandas as pd
 
-x = [5,7,8,7,2,17,2,9,4,11,12,9,6]
-y = [99,86,87,88,111,86,103,87,94,78,77,85,86]
+data  = pd.read_excel('Mom_with_word_counts.xlsx')
+under = data['Clicks']
+over = data['Word Count']
 
-slope, intercept, r, p, std_err = stats.linregress(x, y)
+slope, intercept, r, p, std_err = stats.linregress(under, over)
 
-print(r)
+print('r is:',r)
+print('p is:', p)

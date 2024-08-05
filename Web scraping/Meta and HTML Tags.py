@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = 'https://portfolio-karpel-website.netlify.app/index.html'
+url = 'https://essentialdata.com/service/acceptable-use-policy-writing/'
 
 soup = BeautifulSoup(requests.get(url, headers={'User-Agent': 'Mozilla/5.0'}).content, 'html.parser')
 

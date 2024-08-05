@@ -1,6 +1,6 @@
 from urllib.request import urlopen
 
-url = 'https://portfolio-karpel-website.netlify.app/index.html'
+url = 'hhttps://essentialdata.com/service/acceptable-use-policy-writing/'
 response = urlopen(url)
 html = response.read().decode('utf-8')
 

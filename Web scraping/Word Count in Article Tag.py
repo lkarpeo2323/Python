@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from collections import Counter
 import re
 
-def count_word_frequency_in_article(url):
+def get_total_word_count_in_article(url):
     try:
         # Define headers to mimic a real browser
         headers = {
@@ -17,7 +16,7 @@ def count_word_frequency_in_article(url):
         # Ensure we have HTML content
         if 'text/html' not in response.headers.get('Content-Type', ''):
             print("The content fetched is not HTML.")
-            return {}
+            return 0
 
         # Parse the HTML content
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -26,28 +25,25 @@ def count_word_frequency_in_article(url):
         article = soup.find('article')
         if article is None:
             print("No <article> tag found.")
-            return {}
+            return 0
         
         content = article.get_text()
 
         # Print the first 1000 characters of the content for debugging
         print("Content snippet:", content[:1000])
 
-        # Convert the content to lowercase and remove non-alphanumeric characters
+        # Convert the content to lowercase and split into words
         words = re.findall(r'\b\w+\b', content.lower())
 
-        # Count the frequency of each word
-        word_count = Counter(words)
-
-        return word_count
+        # Return the total word count
+        return len(words)
 
     except requests.RequestException as e:
         print(f"Error fetching the URL: {e}")
-        return {}
+        return 0
 
 # Example usage
 url = 'https://essentialdata.com/service/company-policy-writing/'  # Replace with your URL
 
-word_frequencies = count_word_frequency_in_article(url)
-for word, count in word_frequencies.items():
-    print(f"'{word}' appears {count} times.")
+total_word_count = get_total_word_count_in_article(url)
+print(f"Total word count: {total_word_count}")

@@ -11,9 +11,13 @@ optimizer.load_players_from_csv("meta_data_results.csv")
 # Access the player pool
 pool = optimizer.player_pool
 
+#EXclude a Player
 optimizer.player_pool.remove_player('Bligh Madris')
 
-# Set max exposure for all players to 0.6
+#Exclude a Team
+optimizer.player_pool.exclude_teams(['BAL'])
+
+# Set max exposure for all players
 for player in pool.all_players:
     player.max_exposure = 0.6
 

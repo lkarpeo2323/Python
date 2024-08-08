@@ -33,7 +33,7 @@ for player in pool.all_players:
     player.max_exposure = .6
 
 # Optimize lineups with the specified exposure limits
-lineup_generator = optimizer.optimize(n=20)
+lineup_generator = optimizer.optimize(n=10)
 
 # Print each optimized lineup
 for lineup in lineup_generator:

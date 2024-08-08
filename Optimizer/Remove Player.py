@@ -6,7 +6,7 @@ import pandas as pd
 optimizer = get_optimizer(Site.YAHOO, Sport.BASEBALL)
 
 # Load player data from a CSV file
-optimizer.load_players_from_csv("meta_data_results.csv")
+optimizer.load_players_from_csv("fantasy.csv")
 
 # Access the player pool
 pool = optimizer.player_pool

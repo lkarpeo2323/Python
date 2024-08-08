@@ -29,7 +29,7 @@ optimizer.player_pool.exclude_teams(['LAA'])
 
 # Set max exposure for all players
 for player in pool.all_players:
-    player.max_exposure = 0.9
+    player.max_exposure = 0.6
 
 # Optimize lineups with the specified exposure limits
 lineup_generator = optimizer.optimize(n=10)

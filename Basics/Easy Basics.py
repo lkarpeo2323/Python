@@ -18,10 +18,6 @@ print(text.find('t')) #Output is 5 (Find location of 't')
 print(text[1::2]) #Output is 'cnte'
 
 
-# For Loop
-for i in range (0, 10):
-    print(i)
-
 #While Loop
 j = int(input("input a number below 15: "))
 

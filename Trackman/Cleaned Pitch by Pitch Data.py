@@ -1,33 +1,61 @@
 import pandas as pd
 
-# Load the Excel file
-df = pd.read_excel('Clean.xlsx')
+# Load the CSV file
+df = pd.read_csv('example_game_data.csv')
 
 
-# Mapping the desired columns to their actual names in the Excel file
+# Define the order of columns for optimized analysis
 columns_to_keep = [
-    'Pitcher',            
-    'Velocity',           # 'Rel Speed' will be renamed to 'Velocity'
-    'Pitch Type',       # 'Auto Pitch Type' will be renamed to 'Pitch Type'
-    'Spin Rate',          
-    'Rel Height',         
-    'Rel Side',           
-    'Extension',          
-    'Induced Vert Break', 
-    'Horz Break',          
+    # Pitch information
+    'PitchNo',
+    'PitchofPA',
+    'PAofInning',
+    'Pitcher',
+    'PitcherThrows',
     'Batter',
-    'Balls',
-    'Strikes',
-    'Pitch Call',
-    'Hit Type',    # 'Auto Hit Type' will be renamed to 'Hit Type'
-    'Exit Velocity',    # 'Exit Speed' will be renamed to 'Exit Velocity'
-    'Batter Side'
+    'BatterSide',
+    
+    # Pitch characteristics
+    'Pitch Velocity',
+    'TaggedPitchType',
+    'PitchCall',         
+    'Hit Type',  # 'TaggedHitType' renamed to 'Hit Type'
+    
+    # Spin and angle data
+    'VertRelAngle',
+    'HorzRelAngle',
+    'SpinRate',
+    'SpinAxis',
+    'Tilt',
+    
+    # Release and trajectory details
+    'RelHeight',
+    'RelSide',
+    'Extension',
+    'VertBreak',
+    'HorzBreak',
+    'PlateLocHeight',
+    'PlateLocSide',
+    
+    # Flight and impact metrics
+    'ZoneSpeed',
+    'VertApprAngle',
+    'HorzApprAngle',
+    'ZoneTime',
+    'Exit Velocity',  # 'ExitSpeed' was renamed to 'Exit Velocity'
+    'Angle',
+    'Direction',
+    'Distance',
+    
+    # Results
+    'PlayResult'
 ]
 
 # Rename columns (check comments above)
-df.rename(columns={'Rel Speed': 'Velocity', 'Auto Pitch Type': 'Pitch Type','Auto Hit Type': 'Hit Type', 'Exit Speed': 'Exit Velocity'}, inplace=True)
+df.rename(columns={'RelSpeed': 'Pitch Velocity', 'ExitSpeed': 'Exit Velocity', 'TaggedHitType': 'Hit Type'}, inplace=True)
 
-# Select the relevant columns
+
+# Select the relevant columns in the specified order
 cleaned_df = df[columns_to_keep]
 
 # Save the cleaned data to a new CSV file

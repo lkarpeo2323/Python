@@ -10,8 +10,10 @@ columns_to_keep = [
     'PitchNo',
     'PitchofPA',
     'PAofInning',
+    'PitcherTeam',
     'Pitcher',
     'PitcherThrows',
+    'BatterTeam',
     'Batter',
     'BatterSide',
     

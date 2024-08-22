@@ -3,6 +3,7 @@ import pandas as pd
 # Load the Excel file
 df = pd.read_excel('Clean.xlsx')
 
+
 # Mapping the desired columns to their actual names in the Excel file
 columns_to_keep = [
     'Pitcher',            
@@ -18,13 +19,13 @@ columns_to_keep = [
     'Balls',
     'Strikes',
     'Pitch Call',
-    'Auto Hit Type',
+    'Hit Type',    # 'Auto Hit Type' will be renamed to 'Hit Type'
     'Exit Velocity',    # 'Exit Speed' will be renamed to 'Exit Velocity'
     'Batter Side'
 ]
 
 # Rename columns (check comments above)
-df.rename(columns={'Rel Speed': 'Velocity', 'Auto Pitch Type': 'Pitch Type', 'Exit Speed': 'Exit Velocity'}, inplace=True)
+df.rename(columns={'Rel Speed': 'Velocity', 'Auto Pitch Type': 'Pitch Type','Auto Hit Type': 'Hit Type', 'Exit Speed': 'Exit Velocity'}, inplace=True)
 
 # Select the relevant columns
 cleaned_df = df[columns_to_keep]

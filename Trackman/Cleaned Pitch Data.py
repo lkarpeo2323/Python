@@ -5,14 +5,21 @@ df = pd.read_excel('Clean.xlsx')
 
 # Mapping the desired columns to their actual names in the Excel file
 columns_to_keep = [
-    'Pitcher',            # Already matches
-    'Rel Speed',          # Mapped from 'RelSpeed'
-    'Spin Rate',          # Mapped from 'SpinRate'
-    'Rel Height',         # Mapped from 'RelHeight'
-    'Rel Side',           # Mapped from 'RelSide'
-    'Extension',          # Already matches
-    'Induced Vert Break', # Mapped from 'InducedVertBreak'
-    'Horz Break'          # Mapped from 'HorzBreak'
+    'Pitcher',            
+    'Rel Speed',          
+    'Spin Rate',          
+    'Rel Height',         
+    'Rel Side',           
+    'Extension',          
+    'Induced Vert Break', 
+    'Horz Break',          
+    'Batter',
+    'Balls',
+    'Strikes',
+    'Pitch Call',
+    'Auto Hit Type',
+    'Batter Side'
+    
 ]
 
 # Select the relevant columns

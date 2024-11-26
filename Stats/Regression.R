@@ -6,3 +6,7 @@ mtcars$gear.f <- factor(mtcars$gear,labels=c("3 Gears","4 Gears","5 Gears"))
 
 
 summary(lm(mpg~wt,data=mtcars))
+
+
+
+#The higher the R-Squared is: the better the model is

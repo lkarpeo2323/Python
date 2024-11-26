@@ -16,6 +16,8 @@ chisq.test(data$Gender, data$InternetUse)
 
 
 ##############  Produce a bar Plot    #################3
+
 a = table(data$Gender, data$InternetUse)
-barplot(a, beside=T, legend=T)
+barplot(a,beside=TRUE,legend=TRUE,args.legend=list(x="topright"))
+
 ########################################################

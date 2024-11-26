@@ -1,5 +1,5 @@
 #Figure Out if weights are different
 
-data = read.csv("t-Test.csv")
+college = read.csv("t-Test.csv")
 
-t.test(data$Weight~data$University, data=data)
+t.test(college$Weight~college$University, data=college)
